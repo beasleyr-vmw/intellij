@@ -459,6 +459,8 @@ def collect_c_toolchain_info(target, ctx, semantics, ide_info, ide_info_file, ou
         return False
     if cc_common.CcToolchainInfo not in target:
         return False
+    if type(target[cc_common.CcToolchainInfo]) != "CcToolchainInfo":
+        return False
 
     # cc toolchain to access compiler flags
     cpp_toolchain = target[cc_common.CcToolchainInfo]
